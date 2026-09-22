@@ -1,3 +1,4 @@
+
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -13,12 +14,35 @@ function App() {
       <Navbar />
 
       <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Resume />
-        <Contact />
+        {/* Home */}
+        <section id="home" className="scroll-mt-24">
+          <Hero />
+        </section>
+
+        {/* About */}
+        <section id="about" className="scroll-mt-24">
+          <About />
+        </section>
+
+        {/* Skills */}
+        <section id="skills" className="scroll-mt-24">
+          <Skills />
+        </section>
+
+        {/* Projects / Work */}
+        <section id="work" className="scroll-mt-24">
+          <Projects />
+        </section>
+
+        {/* Resume / Experience */}
+        <section id="experience" className="scroll-mt-24">
+          <Resume />
+        </section>
+
+        {/* Contact */}
+        <section id="contact" className="scroll-mt-24">
+          <Contact />
+        </section>
       </main>
 
       <Footer />
@@ -27,3 +51,4 @@ function App() {
 }
 
 export default App;
+
