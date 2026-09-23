@@ -61,7 +61,7 @@ function Resume() {
                 <p className="text-xs text-slate-500">2025 — Present</p>
 
                 <h3 className="mt-2 text-xl font-bold text-white">
-                  Jr. Front End Developer
+                  Senior Front End Developer
                 </h3>
 
                 <p className="mt-1 text-sm text-cyan-400">
