@@ -1,5 +1,14 @@
 const projects = [
     {
+        title: "FitLog",
+        description:
+            "A modern workout library and planning web app built to explore workouts, create daily plans, save exercises and track workout progress.",
+        tech: ["Next.js", "React", "Tailwind CSS", "Lucide React"],
+        live: "https://fit-log-peach.vercel.app/",
+        github: "https://github.com/SkSabuj-Web/fit-log",
+        featured: true,
+    },
+    {
         title: "Dev Stack Builder",
         description:
             "A modern developer-focused web project built to explore frontend development, reusable components and responsive UI.",
