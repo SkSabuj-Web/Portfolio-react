@@ -9,6 +9,12 @@ const skills = [
     category: "Frontend",
     level: "Primary",
   },
+   {
+    name: "Next.js",
+    category: "Frontend",
+    level: "Primary",
+  },
+
   {
     name: "Tailwind CSS",
     category: "Styling",

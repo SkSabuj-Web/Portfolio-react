@@ -8,6 +8,18 @@ const projects = [
         github: "https://github.com/SkSabuj-Web/fit-log",
         featured: true,
     },
+
+    {
+        title: "GreenNews24",
+        description:
+            "A modern Bengali news platform delivering the latest national and international news with a clean, responsive and user-friendly interface.",
+        tech: ["Next.js", "React", "Tailwind CSS"],
+        live: "https://greennews24-uew9.vercel.app/",
+        github: "https://github.com/SkSabuj-Web/greennews24.git",
+        featured: true,
+    },
+
+
     {
         title: "Dev Stack Builder",
         description:
@@ -23,7 +35,7 @@ const projects = [
             "A private student union member portal with authentication, member management, memories, proposals and election features.",
         tech: ["React", "Tailwind", "Supabase"],
         live: "https://mjpcsu-member-portal.netlify.app/",
-        github: "https://github.com/SkSabuj-Web",
+        github: "https://github.com/SkSabuj-Web/mjpcsu-member-portal",
         featured: true,
     },
     {
