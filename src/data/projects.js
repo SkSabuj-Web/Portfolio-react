@@ -19,6 +19,17 @@ const projects = [
         featured: true,
     },
 
+    {
+        title: "Bazar Dor",
+        description:
+            "A responsive grocery price tracking platform for Bangladesh that helps users explore daily market prices, compare price changes and browse essential products with secure authentication.",
+        tech: ["Next.js", "React", "Tailwind CSS", "MongoDB", "Better Auth"],
+        live: "https://bazar-dor-lroe.vercel.app/",
+        github: "https://github.com/SkSabuj-Web/bazar-dor",
+        featured: true,
+    },
+
+
 
     {
         title: "Dev Stack Builder",
