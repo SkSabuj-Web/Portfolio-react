@@ -65,7 +65,7 @@ function Resume() {
                 </h3>
 
                 <p className="mt-1 text-sm text-cyan-400">
-                  MJPSC Club · Green University of Bangladesh
+                  MJPCSU Club · Green University of Bangladesh
                 </p>
 
                 <p className="mt-5 text-sm leading-7 text-slate-500">
