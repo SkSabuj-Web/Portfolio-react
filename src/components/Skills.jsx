@@ -1,101 +1,58 @@
-const skills = [
+const skillGroups = [
   {
-    name: "JavaScript",
-    category: "Language",
-    level: "Core",
+    name: "Languages",
+    description: "Programming and the web fundamentals",
+    skills: ["JavaScript", "HTML & CSS", "Python"],
   },
   {
-    name: "React",
-    category: "Frontend",
-    level: "Primary",
-  },
-   {
-    name: "Next.js",
-    category: "Frontend",
-    level: "Primary",
-  },
-
-  {
-    name: "Tailwind CSS",
-    category: "Styling",
-    level: "Primary",
+    name: "Frontend",
+    description: "Building responsive interfaces",
+    skills: ["React", "Next.js", "Tailwind CSS"],
   },
   {
-    name: "Supabase",
-    category: "Backend",
-    level: "Working",
+    name: "Backend & data",
+    description: "Connecting products to data and services",
+    skills: ["Supabase", "MongoDB", "MySQL", "Better Auth"],
   },
   {
-    name: "Git & GitHub",
-    category: "Tools",
-    level: "Daily",
-  },
-  {
-    name: "Python",
-    category: "Language",
-    level: "Learning",
-  },
-  {
-    name: "HTML & CSS",
-    category: "Frontend",
-    level: "Core",
-  },
-  {
-    name: "MySQL",
-    category: "Database",
-    level: "Working",
+    name: "Tools",
+    description: "Everyday development workflow",
+    skills: ["Git & GitHub", "Vite", "Lucide React"],
   },
 ];
 
 function Skills() {
   return (
-    <section className="px-4 py-24">
-      <div className="mx-auto max-w-6xl">
-        <div className="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+    <div className="section-space section-divider">
+      <div className="page-container">
+        <div className="section-heading-row">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-violet-400">
-              Tech stack
-            </p>
-
-            <h2 className="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl">
-              Tools I build with.
-            </h2>
+            <p className="section-kicker">Technical skills</p>
+            <h2 className="section-title mt-4">Tools I’m learning and using.</h2>
           </div>
-
-          <p className="max-w-md text-sm leading-7 text-slate-500">
-            A growing toolkit focused on modern frontend development,
-            backend integration and practical product building.
+          <p className="section-copy section-heading-aside">
+            A practical toolkit shaped by the projects I build and the concepts
+            I’m exploring.
           </p>
         </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {skills.map((skill, index) => (
-            <div
-              key={skill.name}
-              className="group rounded-2xl border border-white/10 bg-white/[0.025] p-5 transition duration-300 hover:-translate-y-1 hover:border-violet-400/30 hover:bg-violet-500/[0.04]"
-            >
-              <div className="flex items-center justify-between">
-                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500/20 to-cyan-500/20 text-xs font-bold text-cyan-300">
-                  0{index + 1}
-                </span>
-
-                <span className="text-[10px] uppercase tracking-wider text-slate-600">
-                  {skill.level}
-                </span>
-              </div>
-
-              <h3 className="mt-7 text-lg font-bold text-white">
-                {skill.name}
-              </h3>
-
-              <p className="mt-1 text-sm text-slate-500">
-                {skill.category}
-              </p>
-            </div>
+        <div className="skills-grid">
+          {skillGroups.map((group) => (
+            <section className="skill-group surface-card" key={group.name}>
+              <h3>{group.name}</h3>
+              <p>{group.description}</p>
+              <ul className="skill-list" aria-label={`${group.name} skills`}>
+                {group.skills.map((skill) => (
+                  <li className="skill-badge" key={skill}>
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </section>
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 

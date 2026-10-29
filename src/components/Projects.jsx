@@ -1,159 +1,141 @@
+import { useState } from "react";
+import {
+  ArrowUpRight,
+  Atom,
+  Blocks,
+  Code2,
+  Coffee,
+  Dumbbell,
+  Globe2,
+  Newspaper,
+  ShoppingBasket,
+  Users,
+} from "lucide-react";
 import projects from "../data/projects";
 
+const filters = ["All", "Frontend", "Full-stack"];
+const projectIcons = {
+  market: ShoppingBasket,
+  news: Newspaper,
+  fitness: Dumbbell,
+  builder: Blocks,
+  community: Users,
+  explorer: Globe2,
+  physics: Atom,
+  coffee: Coffee,
+};
+
 function Projects() {
+  const [activeFilter, setActiveFilter] = useState("All");
+  const visibleProjects = projects.filter(
+    (project) => activeFilter === "All" || project.category === activeFilter,
+  );
+
   return (
-    <section id="work" className="relative overflow-hidden px-4 py-24">
-
-      {/* Background */}
-      <div className="pointer-events-none absolute left-1/2 top-20 h-80 w-80 -translate-x-1/2 rounded-full bg-violet-600/10 blur-[120px]" />
-
-      <div className="relative mx-auto max-w-6xl">
-
-        {/* Heading */}
-        <div className="mb-14 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-
+    <div className="section-space section-divider">
+      <div className="page-container">
+        <div className="section-heading-row projects-heading">
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
-              Selected Work
-            </p>
-
-            <h2 className="max-w-2xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              Projects I’m proud to build.
+            <p className="section-kicker">Selected work</p>
+            <h2 className="section-title mt-4 max-w-2xl">
+              Real projects. Useful things learned.
             </h2>
           </div>
-
-          <p className="max-w-md text-sm leading-6 text-slate-400">
-            A collection of projects where I explored frontend development,
-            responsive design, APIs, authentication and modern web technologies.
+          <p className="section-copy section-heading-aside">
+            A selection of applications and websites built to explore
+            development ideas, solve practical problems, and keep improving.
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid gap-7 lg:grid-cols-2">
+        <div className="project-controls">
+          <div className="filter-list" role="group" aria-label="Filter projects">
+            {filters.map((filter) => (
+              <button
+                className="filter-button"
+                key={filter}
+                type="button"
+                aria-pressed={activeFilter === filter}
+                onClick={() => setActiveFilter(filter)}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+          <p className="project-count" aria-live="polite">
+            {visibleProjects.length} projects
+          </p>
+        </div>
 
-          {projects.map((project, index) => (
+        <div className="projects-grid">
+          {visibleProjects.map((project, index) => (
             <article
+              className={`project-card${project.featured ? " project-card-featured" : ""}${project.featured && index === 0 ? " project-card-lead" : ""}`}
               key={project.title}
-              className="group relative overflow-hidden rounded-3xl border border-white/10 bg-[#0b1020] transition-all duration-500 hover:-translate-y-2 hover:border-violet-400/30 hover:shadow-2xl hover:shadow-violet-950/30"
             >
-
-              {/* Glow */}
-              <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-violet-500/10 blur-3xl transition duration-500 group-hover:bg-violet-500/20" />
-
-              {/* Preview */}
-              <div className="relative h-64 overflow-hidden border-b border-white/10 bg-[#050816]">
-
-                {/* Browser Header */}
-                <div className="absolute left-0 right-0 top-0 z-30 flex h-9 items-center gap-1.5 border-b border-white/10 bg-[#080c18]/90 px-4 backdrop-blur-md">
-                  <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-yellow-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-green-400/70" />
-
-                  <div className="ml-3 h-5 flex-1 rounded-md bg-white/[0.05]" />
+              <div
+                className={`project-art project-art-${project.preview}`}
+                aria-hidden="true"
+              >
+                <span className="project-art-index">
+                  PROJECT / {String(projects.indexOf(project) + 1).padStart(2, "0")}
+                </span>
+                <div className="project-art-symbol">
+                  {(() => {
+                    const Icon = projectIcons[project.preview];
+                    return <Icon size={38} strokeWidth={1.35} />;
+                  })()}
                 </div>
-
-                {/* Iframe */}
-                <iframe
-                  src={project.live}
-                  title={project.title}
-                  loading="lazy"
-                  className="h-full w-full border-0 bg-white pt-9 transition duration-700 group-hover:scale-[1.02]"
-                />
-
-                {/* Gradient Overlay */}
-                <div className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-t from-[#050816]/80 via-transparent to-transparent" />
-
-                {/* Number */}
-                <div className="absolute bottom-4 left-4 z-30">
-                  <span className="rounded-full border border-white/10 bg-black/50 px-3 py-1.5 text-xs font-medium text-slate-200 backdrop-blur-md">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                {/* Featured */}
-                {project.featured && (
-                  <div className="absolute right-4 top-12 z-30">
-                    <span className="rounded-full border border-violet-400/20 bg-violet-500/20 px-3 py-1.5 text-xs font-semibold text-violet-200 backdrop-blur-md">
-                      Featured
-                    </span>
-                  </div>
-                )}
+                <span className="project-art-caption">{project.title}</span>
               </div>
 
-              {/* Content */}
-              <div className="relative p-6 sm:p-7">
-
-                <div className="mb-4 flex items-start justify-between gap-4">
-
-                  <h3 className="text-2xl font-bold text-white transition duration-300 group-hover:text-cyan-300">
-                    {project.title}
-                  </h3>
-
-                  <span className="text-2xl text-slate-700 transition duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-cyan-400">
-                    ↗
-                  </span>
+              <div className="project-card-content">
+                <div className="project-card-topline">
+                  <span className="project-number">{project.category}</span>
+                  {project.featured && (
+                    <span className="project-featured-label">Featured work</span>
+                  )}
                 </div>
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-description">{project.description}</p>
 
-                <p className="mb-6 text-sm leading-7 text-slate-400">
-                  {project.description}
-                </p>
-
-                {/* Tech */}
-                <div className="mb-7 flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-xs text-slate-300 transition duration-300 hover:border-cyan-400/20 hover:bg-cyan-400/5 hover:text-cyan-300"
-                    >
-                      {tech}
-                    </span>
+                <ul className="project-tech-list" aria-label="Technologies">
+                  {project.tech.map((technology) => (
+                    <li className="project-badge" key={technology}>
+                      {technology}
+                    </li>
                   ))}
-                </div>
-
-                {/* Links */}
-                <div className="flex flex-wrap gap-3">
-
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="group/link rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-slate-950 transition duration-300 hover:bg-cyan-300 hover:shadow-lg hover:shadow-cyan-400/10"
-                  >
-                    Live Demo
-                    <span className="ml-2 inline-block transition group-hover/link:translate-x-1 group-hover/link:-translate-y-0.5">
-                      ↗
-                    </span>
-                  </a>
-
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-xl border border-white/10 bg-white/[0.03] px-5 py-2.5 text-sm font-medium text-slate-200 transition duration-300 hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
-                  >
-                    GitHub ↗
-                  </a>
-
-                </div>
+                </ul>
               </div>
 
-              {/* Bottom Glow */}
-              <div className="absolute bottom-0 left-1/2 h-px w-0 -translate-x-1/2 bg-gradient-to-r from-transparent via-cyan-400 to-transparent transition-all duration-700 group-hover:w-2/3" />
-
+              <div className="project-links">
+                <a
+                  className="project-action project-action-primary"
+                  href={project.live}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`Visit ${project.title} live demo (opens in a new tab)`}
+                >
+                  Live demo
+                  <ArrowUpRight aria-hidden="true" size={16} />
+                </a>
+                <a
+                  className="project-action project-action-secondary"
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${project.github === "https://github.com/SkSabuj-Web" ? "GitHub profile" : "Source code"} for ${project.title} (opens in a new tab)`}
+                >
+                  <Code2 aria-hidden="true" size={16} />
+                  {project.github === "https://github.com/SkSabuj-Web"
+                    ? "GitHub"
+                    : "Source code"}
+                </a>
+              </div>
             </article>
           ))}
-
         </div>
-
-        {/* Bottom */}
-        <div className="mt-12 text-center">
-          <p className="text-sm text-slate-500">
-            More projects are coming as I continue building and learning.
-          </p>
-        </div>
-
       </div>
-    </section>
+    </div>
   );
 }
 
