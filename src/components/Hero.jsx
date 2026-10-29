@@ -6,27 +6,27 @@ function Hero() {
   return (
     <div className="page-container section-space">
       <div className="hero-grid">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl hero-entrance">
           <p className="eyebrow">Aspiring software engineer</p>
 
           <h1 className="hero-title mt-5">
-            Building thoughtful digital experiences{" "}
-            <span className="text-[var(--accent)]">through code.</span>
+            Turning Ideas Into{" "}
+            <span className="hero-title-highlight">Digital Experiences.</span>
           </h1>
 
           <p className="section-copy mt-6 max-w-2xl">
-            I’m Sajib Khan Sabuj, a CSE student focused on building useful web
-            applications, strengthening my programming fundamentals, and
-            growing into a well-rounded full-stack developer.
+            I’m Sajib Khan Sabuj, an aspiring software engineer and CSE student
+            building useful web applications as I grow into a full-stack
+            developer.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a className="button button-primary" href="#work">
-              Explore my projects
+              Explore My Work
               <ArrowDown aria-hidden="true" size={16} />
             </a>
             <a className="button button-secondary" href="#contact">
-              Contact me
+              Let's Connect
               <ArrowUpRight aria-hidden="true" size={16} />
             </a>
             <a
@@ -61,7 +61,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className="hero-portrait-wrap">
+        <div className="hero-portrait-wrap hero-entrance">
           <div className="portrait-frame hero-portrait">
             <img
               src={profileImage}
@@ -69,6 +69,10 @@ function Hero() {
               className="h-full w-full object-cover object-top"
               fetchPriority="high"
             />
+          </div>
+          <div className="hero-art-note">
+            <Code2 aria-hidden="true" size={16} />
+            <span>Built with intent</span>
           </div>
           <div className="hero-caption">
             <span className="hero-caption-mark" aria-hidden="true">

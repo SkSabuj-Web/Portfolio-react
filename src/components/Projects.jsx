@@ -74,18 +74,31 @@ function Projects() {
             >
               <div
                 className={`project-art project-art-${project.preview}`}
-                aria-hidden="true"
               >
-                <span className="project-art-index">
-                  PROJECT / {String(projects.indexOf(project) + 1).padStart(2, "0")}
-                </span>
-                <div className="project-art-symbol">
-                  {(() => {
-                    const Icon = projectIcons[project.preview];
-                    return <Icon size={38} strokeWidth={1.35} />;
-                  })()}
+                <div className="project-art-placeholder" aria-hidden="true">
+                  <span className="project-art-index">
+                    PROJECT / {String(projects.indexOf(project) + 1).padStart(2, "0")}
+                  </span>
+                  <div className="project-art-symbol">
+                    {(() => {
+                      const Icon = projectIcons[project.preview];
+                      return <Icon size={38} strokeWidth={1.35} />;
+                    })()}
+                  </div>
+                  <span className="project-art-caption">{project.title}</span>
                 </div>
-                <span className="project-art-caption">{project.title}</span>
+                {project.screenshot && (
+                  <img
+                    className="project-preview-image"
+                    src={project.screenshot}
+                    alt={`Screenshot of the ${project.title} website`}
+                    loading="lazy"
+                    decoding="async"
+                    onError={(event) => {
+                      event.currentTarget.hidden = true;
+                    }}
+                  />
+                )}
               </div>
 
               <div className="project-card-content">

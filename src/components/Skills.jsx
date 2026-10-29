@@ -38,7 +38,10 @@ function Skills() {
 
         <div className="skills-grid">
           {skillGroups.map((group) => (
-            <section className="skill-group surface-card" key={group.name}>
+            <section
+              className="skill-group surface-card"
+              key={group.name}
+            >
               <h3>{group.name}</h3>
               <p>{group.description}</p>
               <ul className="skill-list" aria-label={`${group.name} skills`}>

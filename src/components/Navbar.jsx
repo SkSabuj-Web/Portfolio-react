@@ -3,10 +3,12 @@ import { ArrowUpRight, Download, Menu, X } from "lucide-react";
 import cvFile from "../assets/Sajib-Khan-Sabuj-CV.pdf";
 
 const links = [
-  { name: "Projects", href: "#work", id: "work" },
+  { name: "Home", href: "#home", id: "home" },
   { name: "About", href: "#about", id: "about" },
-  { name: "Stack", href: "#skills", id: "skills" },
+  { name: "Skills", href: "#skills", id: "skills" },
+  { name: "Projects", href: "#work", id: "work" },
   { name: "Journey", href: "#experience", id: "experience" },
+  { name: "Contact", href: "#contact", id: "contact" },
 ];
 
 function Navbar() {
@@ -94,7 +96,9 @@ function Navbar() {
             </span>
             <span>
               <span className="brand-name">Sajib Khan Sabuj</span>
-            <span className="brand-caption">CSE student · Web development</span>
+              <span className="brand-caption">
+                CSE student · Web development
+              </span>
             </span>
           </a>
 
@@ -113,16 +117,8 @@ function Navbar() {
             ))}
             <a
               href="#contact"
-              className="mobile-nav-link"
-              aria-current={activeSection === "contact" ? "location" : undefined}
-              onClick={closeMenu}
-            >
-              Contact
-              <ArrowUpRight aria-hidden="true" size={16} />
-            </a>
-            <a
-              href="#contact"
               className="button button-primary nav-contact"
+              aria-current={activeSection === "contact" ? "location" : undefined}
             >
               Let’s talk
               <ArrowUpRight aria-hidden="true" size={15} />

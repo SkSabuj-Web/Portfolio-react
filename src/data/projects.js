@@ -3,6 +3,7 @@ const projects = [
         title: "Bazar Dor",
         category: "Full-stack",
         preview: "market",
+        screenshot: "/projects/bazar-dor.jpg",
         description:
             "A Bangladesh-focused grocery price tracker for browsing essential products, comparing market prices, and signing in securely.",
         tech: ["Next.js", "React", "Tailwind CSS", "MongoDB", "Better Auth"],
@@ -14,6 +15,7 @@ const projects = [
         title: "GreenNews24",
         category: "Frontend",
         preview: "news",
+        screenshot: "/projects/greennews24.jpg",
         description:
             "A Bengali-language news platform for browsing national and international stories in a clean, responsive interface.",
         tech: ["Next.js", "React", "Tailwind CSS"],
@@ -25,6 +27,7 @@ const projects = [
         title: "FitLog",
         category: "Frontend",
         preview: "fitness",
+        screenshot: "/projects/fit-log.jpg",
         description:
             "A workout planning app for exploring exercises, building daily plans, saving favourites, and tracking training progress.",
         tech: ["Next.js", "React", "Tailwind CSS", "Lucide React"],
@@ -37,6 +40,7 @@ const projects = [
         title: "Dev Stack Builder",
         category: "Frontend",
         preview: "builder",
+        screenshot: "/projects/dev-stack-builder.jpg",
         description:
             "A developer-focused project exploring frontend patterns, reusable components, and responsive interface design.",
         tech: ["React", "Tailwind CSS", "Vite"],
